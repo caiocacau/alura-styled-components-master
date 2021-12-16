@@ -41,8 +41,10 @@ export const Botao = styled.button`
 export const Detalhe = styled.span`
     color: #41d3be;
     font-size: 24px;
+    line-height: 46px;
+    float: left;
 `;
-
+    
 export const Saldo = styled.div`
     font-weight: 700;
     font-size: 32px;

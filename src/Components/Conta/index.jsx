@@ -5,9 +5,11 @@ import privado from "../../assets/images/privado.svg";
 import olho_icone from "../../assets/images/olho.svg";
 import dinheiro from "../../assets/images/dinheiro.svg";
 
-import { Icone, Box, Botao, Saldo, Detalhe, IconeTema } from "../UI";
+// import { Icone, Box, Botao, Saldo, Detalhe, IconeTema } from "../UI";
 
-const IconeMargin = styled(Icone)`
+import * as S from "../UI";
+
+const IconeMargin = styled(S.Icone)`
   marginTop: "2px";
 `;
 
@@ -19,27 +21,26 @@ const Conta = () => {
   };
 
   return (
-    <Box>
+    <S.Box>
       <h2>Conta</h2>
       <div style={{ fontSize: "26px", padding: "20px 0" }}>
         Saldo disponível{" "}
         <span>
-          <IconeTema src={dinheiro} alt="Ícone Saldo" />
+          <S.IconeTema src={dinheiro} alt="Ícone Saldo" />
         </span>
-        {toggleState ? (
-          <Saldo>
-            <Detalhe>R$</Detalhe> 0,00{" "}
-          </Saldo>
-        ) : null}
+        <S.Saldo>
+          <S.Detalhe>R$</S.Detalhe>
+          {toggleState ? (<div style={{ float: "left", padding: "0 10px" }}>0,00{" "}</div>) : (<div style={{ float: "left", marginTop: "8px", padding: "0 20px" }}>****{" "}</div>)}
+        </S.Saldo>
       </div>
 
-      <Botao onClick={toggleHandler}>
+      <S.Botao onClick={toggleHandler}>
         <IconeMargin
           src={toggleState ? privado : olho_icone}
           alt="Privacidade do Saldo"
         />
-      </Botao>
-    </Box>
+      </S.Botao>
+    </S.Box>
   );
 };
 
